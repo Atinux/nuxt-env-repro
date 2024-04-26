@@ -26,6 +26,17 @@ export default eventHandler(event => {
 
 See https://nuxt-env-repro.nuxt.dev/api/env
 
+Locally, we have on http://localhost:3000/api/env
+
+```json
+{
+  "runtimeConfig().hello": "world",
+  "runtimeConfig(event).hello": "world",
+  "i.meta.env.NUXT_HELLO": "world",
+  "process.env.NUXT_HELLO": "world"
+}
+```
+
 ## Setup
 
 Make sure to install the dependencies:
