@@ -4,7 +4,7 @@ export default eventHandler(event => {
   return {
     'runtimeConfig().hello': useRuntimeConfig().hello,
     'runtimeConfig(event).hello': runtimeConfig.hello,
-    'import.meta.env.NUXT_HELLO': import.meta.env.NUXT_HELLO,
+    'i.meta.env.NUXT_HELLO': import.meta.env.NUXT_HELLO,
     'process.env.NUXT_HELLO': process.env.NUXT_HELLO
   }
 })
