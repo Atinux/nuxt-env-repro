@@ -1,22 +1,36 @@
-# Nuxt 3 Minimal Starter
+# Nuxt Minimal Reproduction for Env
 
-Look at the [Nuxt 3 documentation](https://nuxt.com/docs/getting-started/introduction) to learn more.
+
+```ts
+// nuxt.config.ts
+export default defineNuxtConfig({
+  runtimeConfig: {
+    hello: ''
+  }
+})
+```
+
+```ts
+// server/api/env.ts
+export default eventHandler(event => {
+  const runtimeConfig = useRuntimeConfig(event)
+
+  return {
+    'runtimeConfig().hello': useRuntimeConfig().hello,
+    'runtimeConfig(event).hello': runtimeConfig.hello,
+    'i.meta.env.NUXT_HELLO': import.meta.env.NUXT_HELLO,
+    'process.env.NUXT_HELLO': process.env.NUXT_HELLO
+  }
+})
+```
+
+See https://env-repro.nuxt.dev/api/env
 
 ## Setup
 
 Make sure to install the dependencies:
 
 ```bash
-# npm
-npm install
-
-# pnpm
-pnpm install
-
-# yarn
-yarn install
-
-# bun
 bun install
 ```
 
@@ -25,51 +39,5 @@ bun install
 Start the development server on `http://localhost:3000`:
 
 ```bash
-# npm
-npm run dev
-
-# pnpm
-pnpm run dev
-
-# yarn
-yarn dev
-
-# bun
 bun run dev
 ```
-
-## Production
-
-Build the application for production:
-
-```bash
-# npm
-npm run build
-
-# pnpm
-pnpm run build
-
-# yarn
-yarn build
-
-# bun
-bun run build
-```
-
-Locally preview production build:
-
-```bash
-# npm
-npm run preview
-
-# pnpm
-pnpm run preview
-
-# yarn
-yarn preview
-
-# bun
-bun run preview
-```
-
-Check out the [deployment documentation](https://nuxt.com/docs/getting-started/deployment) for more information.
