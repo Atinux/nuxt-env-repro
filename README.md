@@ -24,7 +24,7 @@ export default eventHandler(event => {
 })
 ```
 
-See https://env-repro.nuxt.dev/api/env
+See https://nuxt-env-repro.nuxt.dev/api/env
 
 ## Setup
 
